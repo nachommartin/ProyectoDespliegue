@@ -1,0 +1,49 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<link rel='stylesheet' type='text/css' href="factura.css">
+<title>Tu factura</title>
+</head>
+<BODY>
+<div class='header'>
+<div>
+<h3>La retroteca: Juegos clásicos</h3>
+</div>
+<div id="cierreSesion">
+<a href="/"> 
+<input id="salir" type="submit" value="Cerrar sesión"/>
+</a>
+</div>
+</div>
+<div id="gifs">
+<img id='strider' src='https://www.fightersgeneration.com/np5/kof12/terry-12s.gif'>
+</div>
+<BR>
+<span th:if="${carrito!=null}">
+<h1 th:text="${usuario.nick} + ' este es tu pedido: '"></h1>
+</span>
+<span th:if="${carrito!=null}" th:each="item : ${carrito}">
+<h4 th:text="${item}"></h4>
+</span>
+<span th:if="${envio!=null}">
+<h4 th:text="'Gastos de env�o a '+ ${envio}+' euros'"></h4>
+</span>
+<span th:if="${dire!=null}">
+<h4 th:text="'Destino del envío: '+ ${dire}"></h4>
+</span>
+<span th:if="${sumaCarrito!=null}">
+<h3 th:text="'Total a pagar: ' + ${sumaCarrito} + ' euros'"></h3>
+<div th:switch="${pedido.editadoTramitado}"> 
+<a href="/historial">
+<input id="boton" type="submit" value="Tramitar"/>
+</a>
+<a th:case="0" href="catalogo">
+<input id="boton" type="submit" value="Volver a empezar"/>	
+</a>
+<a th:case="*" href="catalogoEdicion">
+<input id="boton" type="submit" value="Volver a empezar"/>	
+</a> 
+</div>
+<br><br>
+</BODY>
+</HTML>

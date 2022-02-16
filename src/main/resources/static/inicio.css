@@ -1,0 +1,116 @@
+@charset "ISO-8859-1";
+@import url("comun.css");
+
+body{
+	width: 100vw;
+	min-height: 100vh;
+	justify-content: center;
+    font-family: sans-serif;
+    background: linear-gradient(rgb(0, 128, 192), rgb(0, 64, 128));
+    margin:0; 
+    text-align:center;
+    color: #ECDFDE; 
+  }
+
+
+.header {
+    display: flex;
+    background: linear-gradient(rgb(0, 128, 192), rgb(0, 64, 128));
+    font-family: sans-serif;
+    color: #ECDFDE;
+    padding-left:0.5em;
+  }
+  
+#cierreSesion{
+	margin-left: 51em;
+	padding-top:1em;
+	}
+  
+img{
+	width:60%;
+	display:block;
+	height:auto;
+	opacity:0.6;	
+}
+
+.container {
+	position:relative;
+	width: 15%;
+	margin-left:auto;
+	margin-right:auto;
+}
+
+.image {
+  width: 100%;
+  display: block;
+  height: auto;
+}
+
+
+.overlay {
+  position: absolute;
+  top: 0.6em;
+  bottom: 0;
+  left: 0.4em;
+  right: 0;
+  height: 50%;
+  width: 50%;
+  opacity: 0;
+  transition: .5s ease;
+  background-color: linear-gradient(rgb(0, 128, 192), rgb(0, 64, 128));
+}
+
+
+.container:hover .overlay {
+  opacity: 1;
+}
+
+.text {
+  color: white;
+  font-size: 15px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+  text-align: center;
+}
+
+#sonic{
+	width: 15%;	
+	float:left;
+	margin:auto;
+	height:auto;
+	margin-top:2.3em;
+	opacity: 0.8
+}
+
+#megaman{
+	width: 20%;	
+	float:right;
+	margin:auto;
+	height:auto;
+	margin-top:0.7em;
+	opacity: 0.8
+}
+
+#gifs{
+	margin-bottom:4.6em
+}
+
+#salir{
+  	   width: 10em;
+       background-color: rgb(255, 128, 128); 
+       border-radius: 60%;
+}
+
+a:link {
+color: #FFFFFF ;
+text-decoration: none;
+}
+
+a:visited {
+color: #FFFFFF; 
+text-decoration: none;
+}

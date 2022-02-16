@@ -1,0 +1,7 @@
+@charset "ISO-8859-1";
+.header {
+    display: flex;
+    justify-content: left;
+    background: linear-gradient(rgb(0, 128, 192), rgb(0, 64, 128));
+    font-family: sans-serif;
+  }

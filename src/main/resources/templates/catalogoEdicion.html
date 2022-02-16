@@ -1,0 +1,82 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<title>Cat�logo</title>
+<link rel='stylesheet' type='text/css' href="catalogo.css">
+</head>
+<BODY>
+<div class='header'>
+<div>
+<h3>La retroteca: Juegos clásicos</h3>
+</div>
+<div id="cierreSesion">
+<a href="/"> 
+<input id="salir" type="submit" value="Cerrar sesi�n"/>
+</a>
+</div>
+</div>
+<div id="gifs">
+<img id='strider' src='https://thumbs.gfycat.com/PointlessBadChupacabra-max-1mb.gif'>
+</div>
+<BR>
+<span th:if="${carritoNo !=null}">
+<h1 th:text="${carritoNo}"></h1>
+</span>
+<span th:if="${pedEdit !=null}">
+<h1 th:text="${pedEdit}"></h1>
+</span>
+<h1 th:text="${carrito} == null OR ${#lists.size(carrito)==0} and ${carritoNo == null} ? '¿Qué te gustaria comprar '+ ${usuario.nick}+ '?' : ${usuario.nick} + ' aquí está tu carrito: '"></h1>
+<span th:if="${carrito!=null}" th:each="item : ${carrito}">
+<h4 th:text="${item}"></h4>
+</span>
+<span th:if="${sumaCarrito!=null}">
+<h3 th:text="'Total a pagar ' + ${sumaCarrito} + ' euros'"></h3>
+</span>
+<a th:if="${carrito !=null}" href="/envio"> 
+<input id="boton" type="submit" value="Hacer pedido"/>
+</a>
+<br>
+<span th:if="${mensajeError!=null} and ${!mensajeError.contains('Failed')}">
+<h4 th:text="${mensajeError}"></h4>
+</span>
+<span th:if="${mensajeError!=null} and ${mensajeError.contains('Failed')}">
+<h4>Selecciona una cantidad</h4>
+</span>
+<table>
+<thead>
+    	<tr>
+    		<th>Ref.</th>
+    		<th>Titulo</th>
+    		<th>Plataforma</th>
+    		<th>Precio</th>
+    		<th>Cantidad</th>
+    	</tr>
+    </thead>
+   	<tbody>
+   		<tr th:each="producto : ${productos}">
+   			<td th:text="${producto.referenciaProducto}"/>
+    		<td th:text="${producto.titulo}"/>
+    		<td th:text="${producto.plataforma}"/>
+    		<td th:text="${producto.precio}"/>
+    		<form th:object="${productoGenerado}" th:action="@{/catalogoEdicion}" method="post">    		
+    		<td>
+    
+    		    <input type="hidden" th:value="${producto.referenciaProducto}" th:name="referenciaProducto" th:id="referenciaProducto" />
+    		    <input type="hidden" th:value="${producto.titulo}" th:name="titulo" th:id="titulo" />
+    		    <input type="hidden" th:value="${producto.plataforma}" th:name="plataforma" th:id="plataforma" />
+    		    <input type="hidden" th:value="${producto.precio}" th:name="precio" th:id="precio"/>
+    			<input type="number" th:name="cantidad" th:id="cantidad" />
+			</td>
+			<td>
+				<input id="boton" type="submit" name="anadir" value="Agregar"/>
+			</td>
+			<td>
+				<input id="boton" type="submit" name="borrar" value="Borrar"/>
+			</td>
+			</form>				
+    	</tr>
+    </tbody>	    	
+</table>
+<br><br>
+</BODY>
+</HTML>

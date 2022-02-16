@@ -1,0 +1,34 @@
+<!DOCTYPE HTML>
+<HTML>
+<link rel='stylesheet' type='text/css' href="inicio.css">
+<BODY>
+<div class='header'>
+<div>
+<h3>La retroteca: Juegos clásicos</h3>
+</div>
+<div id="cierreSesion">
+<a href="/"> 
+<input id="salir" type="submit" value="Cerrar sesión"/>
+</a>
+</div>
+</div>
+<div id="gifs">
+<img id='sonic' src='https://i.gifer.com/3F3F.gif'>
+<img id='megaman' src='https://static.wikia.nocookie.net/rockman_x_dive/images/3/39/X_animated.gif'>
+</div>
+<BR>
+<h1 th:text="'¡Bienvenido '+ ${usuario.nick} +'!'"></h1>
+<br><br><br><br>
+<div class="container">
+<img src='https://graficaslapaz.es/wp-media/uploads/2015/08/3.1.6.3-ICONO-CATALOGOS-PQ.png' class='img' alt='Catalogo'>
+  <div class="overlay">
+    <div class="text"><a href='/catalogo'>Ir al catálogo</a></div>
+  </div>
+</div>
+<BR>
+<div class="container">
+<img src='https://www.codopa.org/v_portal/inc/imagen.asp?f=289.png&c=2' class='img' alt='Historial'>
+  <div class="overlay">
+    <div class="text"><a href='/historial'>Ver tus pedidos</a></div>
+  </div>
+</div>

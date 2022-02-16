@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+<link rel="stylesheet" type="text/css" href="/login.css">
+<title>Retroteca</title>
+</head>
+<body>
+<div class="header">
+<h3>La retroteca: Juegos clásicos</h3>
+<form th:object="${usuario}" th:action="@{/}" method="post">
+	<label id="label1">Usuario:</label>
+	<input type="text" th:field="*{nick}">
+	<br>
+    <label>Contraseña:</label>
+	<input type="password" th:field="*{password}">
+ 	<br>
+    <input id="boton" type="submit" value="Acceder">
+</form>
+</div>
+<img src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/b6/Gnome-joystick.svg/1200px-Gnome-joystick.svg.png">
+</body>
+</html>

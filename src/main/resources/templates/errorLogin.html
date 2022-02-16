@@ -1,0 +1,14 @@
+<!DOCTYPE HTML>
+<HTML>
+<link rel='stylesheet' type='text/css' href="error.css">
+<BODY>
+<div class='header'>
+<h3>La retroteca: Juegos clásicos</h3>
+</div>
+<img src='https://img.icons8.com/dotty/480/facepalm.png'>
+<BR>
+<H1>¡Vaya!</H1>
+<BR>
+<h5 th:text="${usuario.nick != null} ? ${usuario.nick} +' te has equivocado de contrasena' : 'El usuario o la contrasena son incorrect@s'"></h5>
+<BR>
+<A HREF='/'>Vuelve a intentarlo</A>

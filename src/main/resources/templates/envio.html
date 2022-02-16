@@ -1,0 +1,94 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<title>Envío</title>
+<link rel='stylesheet' type='text/css' href="envio.css">
+</head>
+<body>
+<div class='header'>
+<div>
+<h3>La retroteca: Juegos clásicos</h3>
+</div>
+<div id="cierreSesion">
+<a href="/"> 
+<input id="salir" type="submit" value="Cerrar sesión"/>
+</a>
+</div>
+</div>
+<div id="gifs">
+<img id='mario' src='http://pa1.narvii.com/6743/620eae1ca2d61b9ce88a07715a3d3af32bfed77f_00.gif'>
+</div>
+<BR>
+<h1 th:text="${precio != 0.25} and ${direccion !=''} ? ${usuario.nick}+ ' selecciona tu envío' : 'No has seleccionado las opciones requeridas '+${usuario.nick}+ ', prueba de nuevo'"></h1>
+<div id="datos">
+<h3>Tus datos:</h3>
+<h4 th:text="'Dirección: '+${usuario.direccion}"></h4>
+<h4 th:text="'Teléfono: '+${usuario.telefono}"></h4>
+<h4 th:text="'E-mail: '+${usuario.email}"></h4>
+
+</div>
+<div id="tabla">
+<form th:action="@{/envio}" method="post">    		
+<table>
+<thead>
+    	<tr>
+    		<th>Tipo de envío</th>
+    		<th>Precio</th>
+    	</tr>
+    </thead>
+   	<tbody>
+   		<tr>
+    		<td>
+   				<input type="radio" th:name="precio" value="3.49"/>
+   				<label>Ordinario</label>
+			</td>
+			<td>3.49 euros</td>
+		</tr>
+		<tr>
+			<td>
+				<input type="radio" th:name="precio" value="1.99"/>
+				<label>A punto de entrega</label>
+			</td>
+			<td>1.99 euros</td>
+		</tr>
+		<tr>	
+			<td>
+				<input type="radio" th:name="precio" value="4.99"/>
+				<label>Urgente</label>
+			</td>
+			<td>4.99 euros</td>
+    	</tr>
+    	<tr>
+		<td id="destino">Destino</td>
+		</tr>
+    	<tr>	
+			<td>
+			<input type="radio" th:name="direccion" th:value="${usuario.direccion}"/>
+				<label>Mandar a tu dirección</label>
+			</td>
+			<td>
+			<input type="radio" id="otraDire" name="direccion" value="" onchange="javascript:mostrar()"/>
+			<label>Mandar a otra dirección</label>
+			</td>
+    	</tr>
+    	<tr>
+    		<td>
+    			<span id="tambienEscondido">Introduce tu nueva dirección</span>
+    		</td>
+    		<td>
+ 			<input id="escondido" type="text" th:name="direccion" placeholder="Introduce tu nueva direcci�n"/>
+ 			</td>   	
+    	</tr>
+    	<tr>
+    		<td colspan="2">
+    		<input id="boton" type="submit" name="aplicar" value="Aplicar"/>
+    		</td>
+    	</tr>
+    </tbody>	
+</table>
+</form>					
+</div>
+<br><br>
+<script type="text/javascript" src="envio.js"></script>
+</body>
+</html>
